@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const User = require("../models/userModel");
+const bcrypt = require("bcryptjs");
 
 //test route, can be tested in Postman
 // router.get("/test", (req, res) => {
@@ -10,10 +11,10 @@ const User = require("../models/userModel");
 //use async because saving to mongodb is async operation
 router.post("/register", async (req, res) => {
   try {
-    const { email, password, passwordConfirm, userName } = req.body;
+    let { userEmail, password, passwordConfirm, userName } = req.body;
 
     //validation
-    if (!email || !password || !passwordConfirm)
+    if (!userEmail || !password || !passwordConfirm)
       return res
         .status(400)
         .json({ msg: "Required fields are not all entered." });
@@ -31,7 +32,7 @@ router.post("/register", async (req, res) => {
       });
 
     //find if email exist in DB, if not, existingUserEmail should be Null
-    const existingUserEmail = await User.find({ email: email });
+    const existingUserEmail = await User.findOne({ userEmail: userEmail });
 
     if (existingUserEmail)
       return res.status(400).json({
@@ -39,9 +40,22 @@ router.post("/register", async (req, res) => {
       });
 
     //userName is optional, if null, email will be the username
-    if (!userName) userName = email;
+    if (!userName) userName = userEmail;
+
+    //avoid storing passoword as plain text
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPw = await bcrypt.hash(password, salt);
+
+    const newUser = new User({
+      userEmail,
+      password: hashedPw,
+      userName,
+    });
+    const savedUser = await newUser.save();
+    res.json(savedUser);
   } catch (err) {
-    res.status(500).json({ error: err });
+    res.status(500).json({ error: err.message });
   }
 });
 
