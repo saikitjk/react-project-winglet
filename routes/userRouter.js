@@ -74,9 +74,17 @@ router.post("/login", async (req, res) => {
     if (!isMatch) return res.status(400).json({ msg: "Invalid password!" });
 
     const token = jsonWebToken.sign(
-      { id: user_id },
+      { id: user._id },
       process.env.jsonWebToken_Secret
     );
+    res.json({
+      token,
+      user: {
+        id: user._id,
+        userName: user.userName,
+        userEmail: user.userEmail,
+      },
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
