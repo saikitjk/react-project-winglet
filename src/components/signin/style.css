@@ -1,0 +1,9 @@
+.business{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+/*THE SIZE OF YOUR INPUT FIELDS*/
+.business input{
+  width: 80%;
+}
