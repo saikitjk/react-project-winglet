@@ -15,7 +15,7 @@ app.listen(PORT, () => console.log(`The server has started on port: ${PORT}`));
 
 mongoose.connect(
   process.env.mongoDBConnectionURL,
-  { useNewUrlParser: true, useUnifiedTopology: true },
+  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
   (err) => {
     if (err) throw err;
     console.log("Diu! MongoDB connection established.");
