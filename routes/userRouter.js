@@ -69,6 +69,14 @@ router.post("/login", async (req, res) => {
       return res
         .status(400)
         .json({ msg: "There is no user with this email address." });
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(400).json({ msg: "Invalid password!" });
+
+    const token = jsonWebToken.sign(
+      { id: user_id },
+      process.env.jsonWebToken_Secret
+    );
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
