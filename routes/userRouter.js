@@ -1,13 +1,8 @@
 const router = require("express").Router();
 const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
-
-//test route, can be tested in Postman
-// router.get("/test", (req, res) => {
-//   res.send("hello, it is working");
-// });
-
-//post
+const jsonWebToken = require("jsonwebtoken");
+//post for registration
 //use async because saving to mongodb is async operation
 router.post("/register", async (req, res) => {
   try {
@@ -54,6 +49,26 @@ router.post("/register", async (req, res) => {
     });
     const savedUser = await newUser.save();
     res.json(savedUser);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+//login
+router.post("/login", async (req, res) => {
+  try {
+    const { userEmail, password } = req.body;
+
+    if (!userEmail || !password)
+      return res
+        .status(400)
+        .json({ msg: "Required fields are not all entered." });
+
+    const user = await User.findOne({ userEmail: userEmail });
+    if (!user)
+      return res
+        .status(400)
+        .json({ msg: "There is no user with this email address." });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
