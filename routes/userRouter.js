@@ -2,6 +2,8 @@ const router = require("express").Router();
 const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const jsonWebToken = require("jsonwebtoken");
+const auth = require("../middleware/auth");
+
 //post for registration
 //use async because saving to mongodb is async operation
 router.post("/register", async (req, res) => {
@@ -85,6 +87,40 @@ router.post("/login", async (req, res) => {
         userEmail: user.userEmail,
       },
     });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+//delete existing user
+router.delete("/delete", auth, async (req, res) => {
+  console.log(req.user); //check login user
+
+  try {
+    const deletedUser = await User.findByIdAndDelete(req.user);
+    res.json(deletedUser);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+//check token is valid
+//if user exist a token should be valid
+router.post("/tokenIsValid", async (req, res) => {
+  try {
+    const token = req.header("x-auth-token");
+    if (!token) return res.json(false);
+
+    const verified = jsonWebToken.verify(
+      token,
+      process.env.jsonWebToken_Secret
+    );
+    if (!verified) return res.json(false);
+
+    const user = await User.findById(verified.id);
+    if (!user) return res.json(false);
+
+    return res.json(true);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
