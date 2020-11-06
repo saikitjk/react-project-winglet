@@ -21,7 +21,13 @@ export default function AuthOptions() {
   return (
     <nav className="auth-option">
       {userData.user ? (
-        <button onClick={logout}>Logout</button>
+        <button
+          type="button"
+          className="btn btn-outline-dark logoutButton"
+          onClick={logout}
+        >
+          Logout
+        </button>
       ) : (
         <>
           <button

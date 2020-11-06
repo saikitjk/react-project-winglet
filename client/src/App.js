@@ -24,12 +24,12 @@ function App() {
       const tokenRes = await Axios.post(
         "http://localhost:8080/users/tokenIsValid",
         null,
-        { header: { "x-auth-token": token } }
+        { headers: { "x-auth-token": token } }
       );
       console.log("check" + tokenRes.data);
       if (tokenRes.data) {
         const userRes = await Axios.get("http://localhost:8080/users/", {
-          header: { "x-auth-token": token },
+          headers: { "x-auth-token": token },
         });
         setUserData({
           token,
