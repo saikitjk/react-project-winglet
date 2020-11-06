@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  background-color: skyblue;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 5px;
+  color: whitesmoke;
+  padding: 0 1rem;
+}
