@@ -31,7 +31,7 @@ export default function Register() {
       });
 
       localStorage.setItem("auth-token", loginRes.data.token);
-      history.push("/");
+      history.push("/question");
     } catch (err) {
       //console.log("err = " + err);
       err.response.data.msg && setAuthError(err.response.data.msg);
