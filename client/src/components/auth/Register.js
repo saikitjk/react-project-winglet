@@ -41,12 +41,6 @@ export default function Register() {
   return (
     <div className="signUpPage">
       <h2>Sign Up</h2>
-      {authError && (
-        <ErrorMessage
-          message={authError}
-          clearError={() => setAuthError(undefined)}
-        />
-      )}
 
       <form onSubmit={submit}>
         <div class="form-group">
@@ -99,8 +93,18 @@ export default function Register() {
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></input>
         </div>
+        {authError && (
+          <ErrorMessage
+            errorMessage={authError}
+            clearError={() => setAuthError(undefined)}
+          />
+        )}
 
-        <button type="submit" value="Register" class="btn btn-outline-dark">
+        <button
+          type="submit"
+          value="Register"
+          class="btn btn-outline-dark submitButton"
+        >
           Submit
         </button>
       </form>
