@@ -5,9 +5,9 @@ import "./style.css";
 
 export default function Header() {
   return (
-    <header class="header">
+    <header className="header">
       <Link to="/">
-        <h1 class="title">Winglet App </h1>
+        <h1 className="title">Winglet App </h1>
       </Link>
       <AuthOptions />
     </header>
