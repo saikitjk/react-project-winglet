@@ -3,11 +3,12 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "./loginStyle.css";
 import UserContext from "../context/UserContext";
+import ErrorMessage from "../errorHandling/errorMessage";
 
 export default function Login() {
   const [userEmail, setEmail] = useState();
   const [password, setPassword] = useState();
-
+  const [authError, setAuthError] = useState();
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
 
@@ -28,7 +29,7 @@ export default function Login() {
       localStorage.setItem("auth-token", loginObj.data.token);
       history.push("/");
     } catch (err) {
-      console.log("err = " + err);
+      err.response.data.msg && setAuthError(err.response.data.msg);
     }
   };
 
@@ -63,8 +64,18 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </div>
+        {authError && (
+          <ErrorMessage
+            errorMessage={authError}
+            clearError={() => setAuthError(undefined)}
+          />
+        )}
 
-        <button type="submit" value="Login" class="btn btn-outline-dark">
+        <button
+          type="submit"
+          value="Login"
+          class="btn btn-outline-dark submitButton"
+        >
           Login
         </button>
       </form>
