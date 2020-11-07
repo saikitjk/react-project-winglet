@@ -8,22 +8,20 @@ const auth = require("../middleware/auth");
 //use async because saving to mongodb is async operation
 router.post("/register", async (req, res) => {
   try {
-    let { userEmail, password, passwordConfirm, userName } = req.body;
+    let { userEmail, password, confirmPassword, userName } = req.body;
 
     //validation
-    if (!userEmail || !password || !passwordConfirm)
-      return res
-        .status(400)
-        .json({ msg: "Required fields are not all entered." });
+    if (!userEmail || !password || !confirmPassword)
+      return res.status(400).json({ msg: "All fields must be filled." });
 
     //check password length
     if (password.length < 8)
       return res
         .status(400)
-        .json({ msg: "Diu! Password must be at least 8 characters long!" });
+        .json({ msg: "Password must be at least 8 characters long." });
 
     //match password
-    if (password !== passwordConfirm)
+    if (password !== confirmPassword)
       return res.status(400).json({
         msg: "Password confirmation failed. Please enter a match password!",
       });
@@ -62,18 +60,22 @@ router.post("/login", async (req, res) => {
     const { userEmail, password } = req.body;
 
     if (!userEmail || !password)
-      return res
-        .status(400)
-        .json({ msg: "Required fields are not all entered." });
+      return res.status(400).json({ msg: "All fields must be filled." });
 
     const user = await User.findOne({ userEmail: userEmail });
     if (!user)
       return res
         .status(400)
-        .json({ msg: "There is no user with this email address." });
+        .json({ msg: "There is no user registered with this email address." });
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ msg: "Invalid password!" });
+    if (!isMatch)
+      return res
+        .status(400)
+        .json({
+          msg:
+            "This passowrd does not match what we have in our record. Please try again.",
+        });
 
     const token = jsonWebToken.sign(
       { id: user._id },
@@ -84,7 +86,6 @@ router.post("/login", async (req, res) => {
       user: {
         id: user._id,
         userName: user.userName,
-        userEmail: user.userEmail,
       },
     });
   } catch (err) {
@@ -109,6 +110,7 @@ router.delete("/delete", auth, async (req, res) => {
 router.post("/tokenIsValid", async (req, res) => {
   try {
     const token = req.header("x-auth-token");
+
     if (!token) return res.json(false);
 
     const verified = jsonWebToken.verify(
@@ -124,6 +126,15 @@ router.post("/tokenIsValid", async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+});
+
+//get user already login
+router.get("/", auth, async (req, res) => {
+  const user = await User.findById(req.user);
+  res.json({
+    username: user.userName,
+    id: user._id,
+  });
 });
 
 module.exports = router;
