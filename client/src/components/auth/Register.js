@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import Axios from "axios";
+import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "./registerStyle.css";
 import UserContext from "../context/UserContext";
@@ -14,13 +14,13 @@ export default function Register() {
   const history = useHistory();
 
   const submit = async (e) => {
-    e.prventDefault();
+    e.preventDefault();
     try {
       const newUser = { userEmail, password, confirmPassword, userName };
 
-      await Axios.post("http://localhost:8080/users/register", newUser);
+      await axios.post("http://localhost:8080/users/register", newUser);
 
-      const loginRes = await Axios.post("http://localhost:8080/users/login", {
+      const loginRes = await axios.post("http://localhost:8080/users/login", {
         userEmail,
         password,
       });
