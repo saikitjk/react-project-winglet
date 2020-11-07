@@ -26,7 +26,7 @@ function App() {
         null,
         { headers: { "x-auth-token": token } }
       );
-      console.log("check" + tokenRes.data);
+      console.log("check if token exist " + tokenRes.data);
       if (tokenRes.data) {
         const userRes = await Axios.get("http://localhost:8080/users/", {
           headers: { "x-auth-token": token },
