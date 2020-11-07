@@ -5,6 +5,7 @@ import Home from "./components/pages/Home";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Header from "./components/layout/Header";
+import Question from "./components/pages/Questionnaire/Question";
 import UserContext from "./components/context/UserContext";
 import Axios from "axios";
 
@@ -51,6 +52,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
+              <Route path="/question" component={Question} />
             </Switch>
           </div>
         </UserContext.Provider>
