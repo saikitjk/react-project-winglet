@@ -33,3 +33,8 @@ ul,
 ol {
   margin: 1em 0;
 }
+
+.container {
+  margin: 0 auto;
+  max-width: 900px;
+}

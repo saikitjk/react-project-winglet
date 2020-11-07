@@ -3,13 +3,14 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "./registerStyle.css";
 import UserContext from "../context/UserContext";
+import ErrorMessage from "../errorHandling/errorMessage";
 
 export default function Register() {
   const [userName, setUserName] = useState();
   const [userEmail, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
-
+  const [authError, setAuthError] = useState();
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
 
@@ -32,13 +33,21 @@ export default function Register() {
       localStorage.setItem("auth-token", loginRes.data.token);
       history.push("/");
     } catch (err) {
-      console.log("err = " + err);
+      //console.log("err = " + err);
+      err.response.data.msg && setAuthError(err.response.data.msg);
     }
   };
 
   return (
     <div className="signUpPage">
       <h2>Sign Up</h2>
+      {authError && (
+        <ErrorMessage
+          message={authError}
+          clearError={() => setAuthError(undefined)}
+        />
+      )}
+
       <form onSubmit={submit}>
         <div class="form-group">
           <label htmlFor="inputUsername">Username</label>
