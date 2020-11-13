@@ -45,11 +45,11 @@ export default function App() {
 
   //use userContext as data source
   //this brings user back to login if they click logout
-  const { userData } = useContext(UserContext);
-  const history = useHistory();
-  useEffect(() => {
-    if (!userData.user) history.push("./login");
-  }, [userData]);
+  // const { userData } = useContext(UserContext);
+  // const history = useHistory();
+  // useEffect(() => {
+  //   if (!userData.user) history.push("./login");
+  // }, [userData]);
   return (
     <div className="app">
       <>
