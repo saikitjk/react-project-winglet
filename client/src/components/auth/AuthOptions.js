@@ -5,7 +5,6 @@ import "./authOptionStyle.css";
 
 export default function AuthOptions() {
   const { userData, setUserData } = useContext(UserContext);
-  console.log("here " + JSON.stringify(userData));
 
   const history = useHistory();
   const register = () => history.push("/register");
