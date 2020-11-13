@@ -45,10 +45,12 @@ export default function Home() {
   //use userContext as data source
   //this brings user back to login if they click logout
   const { userData } = useContext(UserContext);
-  const history = useHistory();
+  //const history = useHistory();
+
   useEffect(() => {
     console.log("This is userdata " + JSON.stringify(userData.user));
-    if (!userData.user) history.push("./login");
+
+    // if (!userData.user) history.push("./login");
 
     ///Mike's
     axios("https://accounts.spotify.com/api/token", {
