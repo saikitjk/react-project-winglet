@@ -9,14 +9,6 @@ import Detail from "../spotify/Detail";
 import { Credentials } from "../spotify/Credentials";
 
 export default function Home() {
-  //   //use userContext as data source
-  //   //this brings user back to login if they click logout
-  //   const { userData } = useContext(UserContext);
-  //   const history = useHistory();
-  //   useEffect(() => {
-  //     if (!userData.user) history.push("./login");
-  //   }, [userData]); //put userdata so logout will know
-
   ////////////////////////Mike's
   const spotify = Credentials();
 
@@ -45,12 +37,9 @@ export default function Home() {
   //use userContext as data source
   //this brings user back to login if they click logout
   const { userData } = useContext(UserContext);
-  //const history = useHistory();
 
   useEffect(() => {
     console.log("This is userdata " + JSON.stringify(userData.user));
-
-    // if (!userData.user) history.push("./login");
 
     ///Mike's
     axios("https://accounts.spotify.com/api/token", {
