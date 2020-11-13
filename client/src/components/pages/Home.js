@@ -47,6 +47,7 @@ export default function Home() {
   const { userData } = useContext(UserContext);
   const history = useHistory();
   useEffect(() => {
+    console.log("This is userdata " + JSON.stringify(userData.user));
     if (!userData.user) history.push("./login");
 
     ///Mike's

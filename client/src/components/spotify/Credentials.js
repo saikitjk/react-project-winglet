@@ -1,8 +1,8 @@
+require("dotenv").config();
 const Credentials = () => {
   return {
-    ClientId: "ENTER YOUR CLIENT ID",
-    ClientSecret: "ENTER YOUR CLIENT SECRET",
+    ClientId: `${process.env.spotifyID}`,
+    ClientSecret: `${process.env.spotifyKey}`,
   };
 };
-
 export { Credentials };
