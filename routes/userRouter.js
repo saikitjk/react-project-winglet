@@ -70,12 +70,10 @@ router.post("/login", async (req, res) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch)
-      return res
-        .status(400)
-        .json({
-          msg:
-            "This passowrd does not match what we have in our record. Please try again.",
-        });
+      return res.status(400).json({
+        msg:
+          "This passowrd does not match what we have in our record. Please try again.",
+      });
 
     const token = jsonWebToken.sign(
       { id: user._id },

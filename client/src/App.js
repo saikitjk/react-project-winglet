@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Login from "./components/auth/Login";
@@ -7,9 +7,13 @@ import Register from "./components/auth/Register";
 import Header from "./components/layout/Header";
 import Question from "./components/pages/Questionnaire/Question";
 import UserContext from "./components/context/UserContext";
+import LandingPage from "./components/pages/LandingPage";
 import Axios from "axios";
+//import { useHistory } from "react-router-dom";
 
 function App() {
+  //const history = useHistory();
+
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
@@ -49,7 +53,8 @@ function App() {
           <Header />
           <div className="container">
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={LandingPage} />
+              <Route path="/home" component={Home} />
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route path="/question" component={Question} />

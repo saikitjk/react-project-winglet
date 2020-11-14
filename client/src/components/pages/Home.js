@@ -1,18 +1,24 @@
 import React, { useEffect, useContext, useState } from "react";
 import "./homeStyle.css";
 import UserContext from "../context/UserContext";
-import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Dropdown from "../spotify/Dropdown";
 import Listbox from "../spotify/Listbox";
 import Detail from "../spotify/Detail";
 import { Credentials } from "../spotify/Credentials";
+import LandingPage from "./LandingPage";
+require("dotenv").config();
 
 export default function Home() {
+  const { userData } = useContext(UserContext);
   ////////////////////////Mike's
   const spotify = Credentials();
 
   console.log("RENDERING APP.JS");
+  console.log(process.env.REACT_APP_SPOTIFYID);
+  console.log(process.env.REACT_APP_ID);
+  console.log(process.env.REACT_APP_KEY);
+  console.log("key " + spotify.ClientKey);
 
   const data = [
     { value: 1, name: "A" },
@@ -34,10 +40,6 @@ export default function Home() {
   });
   const [trackDetail, setTrackDetail] = useState(null);
 
-  //use userContext as data source
-  //this brings user back to login if they click logout
-  const { userData } = useContext(UserContext);
-
   useEffect(() => {
     console.log("This is userdata " + JSON.stringify(userData.user));
 
@@ -46,7 +48,7 @@ export default function Home() {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         Authorization:
-          "Basic " + btoa(spotify.ClientId + ":" + spotify.ClientSecret),
+          "Basic " + btoa(spotify.ClientId + ":" + spotify.ClientKey),
       },
       data: "grant_type=client_credentials",
       method: "POST",
@@ -64,7 +66,7 @@ export default function Home() {
       });
     });
     ////Mike's end here
-  }, [userData, genres.selectedGenre, spotify.ClientId, spotify.ClientSecret]); //put userdata so logout will know
+  }, [userData, genres.selectedGenre, spotify.ClientId, spotify.ClientKey]); //put userdata so logout will know
 
   /////////////////////////Mike's starts here
   const genreChanged = (val) => {
@@ -125,35 +127,41 @@ export default function Home() {
   }; ////mike's end here
 
   return (
-    <div className="homePage">
-      <div className="container">
-        <form onSubmit={buttonClicked}>
-          <Dropdown
-            label="Genre :"
-            options={genres.listOfGenresFromAPI}
-            selectedValue={genres.selectedGenre}
-            changed={genreChanged}
-          />
-          <Dropdown
-            label="Playlist :"
-            options={playlist.listOfPlaylistFromAPI}
-            selectedValue={playlist.selectedPlaylist}
-            changed={playlistChanged}
-          />
-          <div className="col-sm-6 row form-group px-0">
-            <button type="submit" className="btn btn-success col-sm-12">
-              Search
-            </button>
+    <>
+      {userData.user ? (
+        <div className="homePage">
+          <div className="container">
+            <form onSubmit={buttonClicked}>
+              <Dropdown
+                label="Genre :"
+                options={genres.listOfGenresFromAPI}
+                selectedValue={genres.selectedGenre}
+                changed={genreChanged}
+              />
+              <Dropdown
+                label="Playlist :"
+                options={playlist.listOfPlaylistFromAPI}
+                selectedValue={playlist.selectedPlaylist}
+                changed={playlistChanged}
+              />
+              <div className="col-sm-6 row form-group px-0">
+                <button type="submit" className="btn btn-success col-sm-12">
+                  Search
+                </button>
+              </div>
+              <div className="row">
+                <Listbox
+                  items={tracks.listOfTracksFromAPI}
+                  clicked={listboxClicked}
+                />
+                {trackDetail && <Detail {...trackDetail} />}
+              </div>
+            </form>
           </div>
-          <div className="row">
-            <Listbox
-              items={tracks.listOfTracksFromAPI}
-              clicked={listboxClicked}
-            />
-            {trackDetail && <Detail {...trackDetail} />}
-          </div>
-        </form>
-      </div>
-    </div>
+        </div>
+      ) : (
+        <LandingPage />
+      )}
+    </>
   );
 }
