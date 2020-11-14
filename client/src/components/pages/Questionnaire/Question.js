@@ -1,9 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import UserContext from "../../context/UserContext";
-import { useHistory } from "react-router-dom";
+import LandingPage from "../LandingPage";
+//import { useHistory } from "react-router-dom";
 import "./style.css";
 
 export default function App() {
+  const { userData } = useContext(UserContext);
   const questions = [
     {
       questionText: "What's your favorite music genre?",
@@ -51,27 +53,33 @@ export default function App() {
   //   if (!userData.user) history.push("./login");
   // }, [userData]);
   return (
-    <div className="app">
-      <>
-        <div className="question-section">
-          <div className="question-count">
-            <span>Question {currentQuestion + 1}</span>/{questions.length}
-          </div>
-          <div className="question-text">
-            {questions[currentQuestion].questionText}
-          </div>
+    <>
+      {userData.user ? (
+        <div className="app">
+          <>
+            <div className="question-section">
+              <div className="question-count">
+                <span>Question {currentQuestion + 1}</span>/{questions.length}
+              </div>
+              <div className="question-text">
+                {questions[currentQuestion].questionText}
+              </div>
+            </div>
+            <div className="answer-section">
+              {questions[currentQuestion].answerOptions.map((answerOption) => (
+                <button
+                  className="answerButton"
+                  onClick={() => handleAnswerOptionClick()}
+                >
+                  {answerOption.answerText}
+                </button>
+              ))}
+            </div>
+          </>
         </div>
-        <div className="answer-section">
-          {questions[currentQuestion].answerOptions.map((answerOption) => (
-            <button
-              className="answerButton"
-              onClick={() => handleAnswerOptionClick()}
-            >
-              {answerOption.answerText}
-            </button>
-          ))}
-        </div>
-      </>
-    </div>
+      ) : (
+        <LandingPage />
+      )}
+    </>
   );
 }
