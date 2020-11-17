@@ -1,8 +1,10 @@
 import React, { useEffect, useContext, useState } from "react";
+
 import "./homeStyle.css";
 import UserContext from "../context/UserContext";
 import SpotifyModule from "../spotify/SpotifyModule";
 import YelpModule from "../yelp/LandingPage/YelpModule";
+
 import LandingPage from "./LandingPage"; //welcome page
 require("dotenv").config();
 

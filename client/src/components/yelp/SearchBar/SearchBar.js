@@ -21,6 +21,11 @@ export default function SearchBar() {
         <p className="control">
           <input className="input" type="text" placeholder="City" />
         </p>
+        <button className="button searchButton">
+          <span className="icon is-small">
+            <i className="fas fa-search"></i>
+          </span>
+        </button>
       </div>
     </div>
   );
