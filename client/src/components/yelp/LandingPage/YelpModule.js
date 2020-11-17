@@ -17,7 +17,6 @@ export default function YelpModule() {
         </div>
         <SearchBar />
       </div>
-      <SearchSuggestion />
 
       <BrowserRouter>
         <Switch>
@@ -27,3 +26,32 @@ export default function YelpModule() {
     </>
   );
 }
+
+// {props.identifier === "search" ? (
+//     <div className="row">
+//       <div className="col">
+//         <button
+//           onClick={() => props.onBookSave(book, index)}
+//           className="btn btn-outline-secondary"
+//           type="button"
+//         >
+//           <span>Save Book</span>
+//         </button>
+//       </div>
+//       <div className="col checksaved"></div>
+//       <div className="col msgText">
+//         {book.saved ? "Book Saved" : ""}
+//       </div>
+//       <div className="col">
+//         <CheckSaved rendered={book.saved} />
+//       </div>
+//     </div>
+//   ) : (
+//     <button
+//       onClick={(e) => props.onDelete(book._id)}
+//       className="btn btn-outline-secondary"
+//       type="button"
+//     >
+//       Delete
+//     </button>
+//   )}

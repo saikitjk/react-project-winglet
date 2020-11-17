@@ -1,0 +1,15 @@
+.searchTitleRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  padding: 2rem;
+}
+
+.searchContainer {
+  background-color: rgb(245, 245, 245);
+}
+
+.searchContainer h4 {
+  text-align: center;
+}
