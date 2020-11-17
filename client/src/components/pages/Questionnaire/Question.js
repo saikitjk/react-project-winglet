@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import UserContext from "../../context/UserContext";
-import LandingPage from "../LandingPage";
+import LandingPage from "../LandingPage"; //welcome page
 //import { useHistory } from "react-router-dom";
 import "./style.css";
 

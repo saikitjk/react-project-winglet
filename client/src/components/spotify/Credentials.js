@@ -1,8 +1,8 @@
 require("dotenv").config();
 const Credentials = () => {
   return {
-    ClientId: process.env.REACT_APP_spotifyID,
-    ClientKey: process.env.REACT_APP_spotifyKey,
+    ClientId: process.env.REACT_APP_ID,
+    ClientKey: process.env.REACT_APP_Key,
   };
 };
 export { Credentials };
