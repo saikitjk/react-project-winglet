@@ -2,12 +2,19 @@ import React from "react";
 import Results from "../Search/SearchResultSummary/Results";
 import "./search.css";
 import { useLocation } from "react-router-dom";
+import useBusSearch from "../../../utils/useBusSearch";
 
 export default function Search() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const term = params.get("find_desc");
   const locationParam = params.get("find_loc");
+  const [
+    businesses,
+    amountResults,
+    searchParams,
+    setSearchParams,
+  ] = useBusSearch(term, locationParam);
 
   return (
     <div className="container searchContainer">
@@ -20,7 +27,7 @@ export default function Search() {
 
       <h4>Search Result:</h4>
 
-      <Results />
+      <Results businesses={businesses} />
     </div>
   );
 }

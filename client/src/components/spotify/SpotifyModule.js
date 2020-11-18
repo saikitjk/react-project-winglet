@@ -5,6 +5,7 @@ import Dropdown from "./Dropdown";
 import Listbox from "./Listbox";
 import Detail from "./Detail";
 import { Credentials } from "./Credentials";
+require("dotenv").config();
 
 export default function SpotifyModule() {
   const spotify = Credentials();
