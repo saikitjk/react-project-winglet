@@ -1,26 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 
-export default function SearchBar() {
+export default function SearchBar(props) {
+  const [term, setTerm] = useState(props.term || "");
+  const [location, setLocation] = useState(props.location || "");
+
   return (
     <div className="row searchRow">
       <div className="field has-addons">
-        <p className="control">
-          <button className="button is-static">Search</button>
-        </p>
-        <p className="control">
+        <div className="control">
+          <div className="button is-static">Search</div>
+        </div>
+        <div className="control">
           <input
             className="input"
             type="text"
             placeholder="Resturants, bars, shops.."
+            onChange={(e) => setTerm(e.target.value)}
           />
-        </p>
-        <p className="control">
-          <button className="button is-static">Near</button>
-        </p>
-        <p className="control">
-          <input className="input" type="text" placeholder="City" />
-        </p>
+        </div>
+        <div className="control">
+          <div className="button is-static">Near</div>
+        </div>
+        <div className="control">
+          <input
+            className="input"
+            type="text"
+            placeholder="City"
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </div>
         <button className="button searchButton">
           <span className="icon is-small">
             <i className="fas fa-search"></i>
