@@ -1,5 +1,6 @@
 import React from "react";
 import "./oneResultObj.css";
+import Rating from "../../Rating/Rating";
 
 export default function OneResultObj() {
   return (
@@ -9,7 +10,7 @@ export default function OneResultObj() {
       </div>
       <div className="col-6 busInfo">
         <h2 className="subtitle"> burger place</h2>
-        <p>rating</p>
+        <Rating />
         <p>
           $$ <span class="tag">burger</span> <span class="tag">fast food</span>
         </p>
