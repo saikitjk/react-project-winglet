@@ -7,6 +7,10 @@ export default function SearchBar(props) {
 
   function submit(e) {
     e.preventDefault();
+
+    if (typeof props.search === "function") {
+      props.search(term, location);
+    }
     console.log(term, location);
   }
 
@@ -21,6 +25,7 @@ export default function SearchBar(props) {
             <input
               className="input"
               type="text"
+              value={term}
               placeholder="Resturants, bars, shops.."
               onChange={(e) => setTerm(e.target.value)}
             />
@@ -32,6 +37,7 @@ export default function SearchBar(props) {
             <input
               className="input"
               type="text"
+              value={location}
               placeholder="City"
               onChange={(e) => setLocation(e.target.value)}
             />

@@ -12,7 +12,8 @@ export default function OneResultObj() {
         <h2 className="subtitle"> burger place</h2>
         <Rating />
         <p>
-          $$ <span class="tag">burger</span> <span class="tag">fast food</span>
+          $$ <span className="tag">burger</span>{" "}
+          <span class="tag">fast food</span>
         </p>
       </div>
       <div className=" col-3 busContact">

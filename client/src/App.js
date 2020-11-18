@@ -10,6 +10,7 @@ import UserContext from "./components/context/UserContext";
 import LandingPage from "./components/pages/LandingPage"; //welcome page
 import YelpModule from "./components/yelp/LandingPage/YelpModule";
 import Axios from "axios";
+import Search from "./components/yelp/Search/Search";
 
 //import { useHistory } from "react-router-dom";
 
@@ -60,6 +61,7 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/question" component={Question} />
+            <Route path="/search" component={Search} />
           </Switch>
         </UserContext.Provider>
       </BrowserRouter>
