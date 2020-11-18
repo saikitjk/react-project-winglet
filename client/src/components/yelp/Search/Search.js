@@ -1,5 +1,5 @@
 import React from "react";
-import Result from "../Search/SearchResultSummary/Result";
+import Results from "../Search/SearchResultSummary/Results";
 import "./search.css";
 
 export default function Search() {
@@ -13,9 +13,9 @@ export default function Search() {
           <p>showing 1-20 our of 600 results</p>
         </div>
 
-        <h4>Search Result Summary</h4>
+        <h4>Search Result:</h4>
 
-        <Result />
+        <Results />
       </div>
     </>
   );
