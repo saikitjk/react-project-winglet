@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import LandingPage from "../LandingPage"; //welcome page
 //import { useHistory } from "react-router-dom";
@@ -38,7 +39,7 @@ export default function App() {
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [count, setCount] = useState(1);
-
+  const history = useHistory();
   const handleAnswerOptionClick = () => {
     const nextQuestion = currentQuestion + 1;
 
@@ -52,12 +53,20 @@ export default function App() {
     console.log("this is" + count);
   }
 
+  const goHome = () => history.push("/home");
+
   return (
     <>
       {userData.user ? (
         <div className="app">
           {count > questions.length ? (
-            <div>gg</div>
+            <button
+              type="button"
+              className="btn btn btn-success goHomeButton"
+              onClick={goHome}
+            >
+              Submit
+            </button>
           ) : (
             <>
               <div className="question-section">
