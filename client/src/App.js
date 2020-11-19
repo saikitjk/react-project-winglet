@@ -61,7 +61,6 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/question" component={Question} />
-            <Route path="/search" component={Search} />
           </Switch>
         </UserContext.Provider>
       </BrowserRouter>
@@ -70,3 +69,5 @@ function App() {
 }
 
 export default App;
+
+//        <Route path="/search" component={Search} />

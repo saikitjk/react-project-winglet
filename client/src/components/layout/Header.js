@@ -9,11 +9,17 @@ export default function Header() {
   //determine what to show user (logged in vs not)_
   const { userData } = useContext(UserContext);
 
+  function refreshpage() {
+    window.location.reload();
+  }
+
   return (
     <header className="header">
       {userData.user ? (
         <Link to="/home">
-          <h1 className="title">Winglet App </h1>
+          <h1 className="title" onClick={refreshpage}>
+            Winglet App{" "}
+          </h1>
         </Link>
       ) : (
         <Link to="/">

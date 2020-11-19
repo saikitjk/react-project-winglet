@@ -11,6 +11,7 @@ require("dotenv").config();
 export default function Home() {
   const { userData } = useContext(UserContext);
   console.log("This is userdata " + JSON.stringify(userData.user));
+
   return (
     <>
       {userData.user ? (

@@ -10,8 +10,10 @@ export default function SearchBar(props) {
 
     if (typeof props.search === "function") {
       props.search(term, location);
+      window.location.reload();
     }
     console.log(term, location);
+    console.log("i am called");
   }
 
   return (
