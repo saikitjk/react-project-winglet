@@ -1,0 +1,27 @@
+.suggestionRow {
+  padding-top: 10px;
+  padding-left: 100px;
+  padding-right: 100px;
+  font-size: 12px;
+  justify-content: space-between;
+}
+
+.suggestionRow span {
+  margin-left: 5px;
+}
+
+.restarurantIcon {
+  margin-left: 5px;
+}
+
+.deliveryIcon {
+  margin-left: 15px;
+}
+
+.serviceIcon {
+  margin-left: 15px;
+}
+
+.nightlifeIcon {
+  margin-left: 15px;
+}

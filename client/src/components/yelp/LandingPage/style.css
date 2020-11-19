@@ -1,0 +1,10 @@
+.searchArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.navRow {
+  margin-bottom: 20px;
+}

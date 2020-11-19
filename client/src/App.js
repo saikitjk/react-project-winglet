@@ -7,8 +7,11 @@ import Register from "./components/auth/Register";
 import Header from "./components/layout/Header";
 import Question from "./components/pages/Questionnaire/Question";
 import UserContext from "./components/context/UserContext";
-import LandingPage from "./components/pages/LandingPage";
+import LandingPage from "./components/pages/LandingPage"; //welcome page
+import YelpModule from "./components/yelp/LandingPage/YelpModule";
 import Axios from "axios";
+import Search from "./components/yelp/Search/Search";
+
 //import { useHistory } from "react-router-dom";
 
 function App() {
@@ -51,15 +54,14 @@ function App() {
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
           <Header />
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={LandingPage} />
-              <Route path="/home" component={Home} />
-              <Route path="/login" component={Login} />
-              <Route path="/register" component={Register} />
-              <Route path="/question" component={Question} />
-            </Switch>
-          </div>
+
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/home" component={Home} />
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+            <Route path="/question" component={Question} />
+          </Switch>
         </UserContext.Provider>
       </BrowserRouter>
     </>
@@ -67,3 +69,5 @@ function App() {
 }
 
 export default App;
+
+//        <Route path="/search" component={Search} />

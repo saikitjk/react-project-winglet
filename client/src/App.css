@@ -14,13 +14,13 @@ ul {
   list-style: none;
 }
 
-button,
+/* button,
 input[type="submit"] {
   border: none;
   background: none;
   color: unset;
   cursor: pointer;
-}
+} */
 
 h1,
 h2,

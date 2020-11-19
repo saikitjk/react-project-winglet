@@ -1,0 +1,8 @@
+.searchRow {
+  margin-top: 10px;
+  width: 100%;
+}
+
+:global(.button).searchButton {
+  background: #bd1f1f;
+}
