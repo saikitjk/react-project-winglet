@@ -56,29 +56,35 @@ export default function App() {
     <>
       {userData.user ? (
         <div className="app">
-          <>
-            <div className="question-section">
-              <div className="question-count">
-                <span>Question {currentQuestion + 1}</span>/{questions.length}
+          {count > questions.length ? (
+            <div>gg</div>
+          ) : (
+            <>
+              <div className="question-section">
+                <div className="question-count">
+                  <span>Question {currentQuestion + 1}</span>/{questions.length}
+                </div>
+                <div className="question-text">
+                  {questions[currentQuestion].questionText}
+                </div>
               </div>
-              <div className="question-text">
-                {questions[currentQuestion].questionText}
+              <div className="answer-section">
+                {questions[currentQuestion].answerOptions.map(
+                  (answerOption) => (
+                    <button
+                      className="answerButton"
+                      onClick={() => {
+                        handleAnswerOptionClick();
+                        counter();
+                      }}
+                    >
+                      {answerOption.answerText}
+                    </button>
+                  )
+                )}
               </div>
-            </div>
-            <div className="answer-section">
-              {questions[currentQuestion].answerOptions.map((answerOption) => (
-                <button
-                  className="answerButton"
-                  onClick={() => {
-                    handleAnswerOptionClick();
-                    counter();
-                  }}
-                >
-                  {answerOption.answerText}
-                </button>
-              ))}
-            </div>
-          </>
+            </>
+          )}
         </div>
       ) : (
         <LandingPage />
