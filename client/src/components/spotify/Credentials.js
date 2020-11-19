@@ -6,3 +6,10 @@ const Credentials = () => {
   };
 };
 export { Credentials };
+
+//Key is in .env
+//before commit, replace the key with the following:
+//``````````````````````````````````
+// ClientId: process.env.REACT_APP_ID,
+// ClientKey: process.env.REACT_APP_Key,
+//``````````````````````````````````

@@ -37,21 +37,21 @@ export default function App() {
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [count, setCount] = useState(1);
 
   const handleAnswerOptionClick = () => {
     const nextQuestion = currentQuestion + 1;
+
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     }
   };
 
-  //use userContext as data source
-  //this brings user back to login if they click logout
-  // const { userData } = useContext(UserContext);
-  // const history = useHistory();
-  // useEffect(() => {
-  //   if (!userData.user) history.push("./login");
-  // }, [userData]);
+  function counter() {
+    setCount(count + 1);
+    console.log("this is" + count);
+  }
+
   return (
     <>
       {userData.user ? (
@@ -69,7 +69,10 @@ export default function App() {
               {questions[currentQuestion].answerOptions.map((answerOption) => (
                 <button
                   className="answerButton"
-                  onClick={() => handleAnswerOptionClick()}
+                  onClick={() => {
+                    handleAnswerOptionClick();
+                    counter();
+                  }}
                 >
                   {answerOption.answerText}
                 </button>
