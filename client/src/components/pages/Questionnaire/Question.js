@@ -40,6 +40,14 @@ export default function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [count, setCount] = useState(1);
   const history = useHistory();
+
+  const [userAnswers, setUserAnswers] = useState([]);
+
+  const appendAnswertoArray = () => {
+    //setUserAnswers([...userAnswers, ])
+    console.log("i am hit ");
+  };
+
   const handleAnswerOptionClick = () => {
     const nextQuestion = currentQuestion + 1;
 
@@ -85,6 +93,7 @@ export default function App() {
                       onClick={() => {
                         handleAnswerOptionClick();
                         counter();
+                        appendAnswertoArray();
                       }}
                     >
                       {answerOption.answerText}
