@@ -9,7 +9,7 @@ const auth = (req, res, next) => {
     //verified if there is a token
     const verified = jsonWebToken.verify(
       token,
-      process.env.jsonWebToken_Secret
+      process.env.REACT_APP_jsonWebToken_Secret
     );
     if (!verified)
       return res
