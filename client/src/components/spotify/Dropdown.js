@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 const Dropdown = (props) => {
   const dropdownChanged = (e) => {
@@ -6,12 +7,12 @@ const Dropdown = (props) => {
   };
 
   return (
-    <div className="col-sm-6 form-group row px-0">
-      <label className="form-label col-sm-2">{props.label}</label>
+    <div className="col form-group row px-0">
+      <label className="form-label col-sm-4">{props.label}</label>
       <select
         value={props.selectedValue}
         onChange={dropdownChanged}
-        className="form-control form-control-sm col-sm-10"
+        className="form-control form-control-sm col-sm-8"
       >
         <option key={0}>Select...</option>
         {props.options.map((item, idx) => (

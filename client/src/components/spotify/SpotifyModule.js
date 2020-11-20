@@ -1,10 +1,11 @@
 import React, { useEffect, useContext, useState } from "react";
-
+import "./style.css";
 import axios from "axios";
 import Dropdown from "./Dropdown";
 import Listbox from "./Listbox";
 import Detail from "./Detail";
 import { Credentials } from "./Credentials";
+import Nav from "./Nav";
 require("dotenv").config();
 
 export default function SpotifyModule() {
@@ -119,6 +120,7 @@ export default function SpotifyModule() {
 
   return (
     <div className="container spotifyContainer">
+      <Nav />
       <form onSubmit={buttonClicked}>
         <Dropdown
           label="Genre :"
@@ -132,7 +134,7 @@ export default function SpotifyModule() {
           selectedValue={playlist.selectedPlaylist}
           changed={playlistChanged}
         />
-        <div className="col-sm-6 row form-group px-0">
+        <div className="col row form-group px-0">
           <button type="submit" className="btn btn-success col-sm-12">
             Search
           </button>

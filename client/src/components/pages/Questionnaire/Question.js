@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import LandingPage from "../LandingPage"; //welcome page
 //import { useHistory } from "react-router-dom";
@@ -37,45 +38,71 @@ export default function App() {
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [count, setCount] = useState(1);
+  const history = useHistory();
+
+  const [userAnswers, setUserAnswers] = useState([]);
+
+  const appendAnswertoArray = () => {
+    //setUserAnswers([...userAnswers, ])
+    console.log("i am hit ");
+  };
 
   const handleAnswerOptionClick = () => {
     const nextQuestion = currentQuestion + 1;
+
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     }
   };
 
-  //use userContext as data source
-  //this brings user back to login if they click logout
-  // const { userData } = useContext(UserContext);
-  // const history = useHistory();
-  // useEffect(() => {
-  //   if (!userData.user) history.push("./login");
-  // }, [userData]);
+  function counter() {
+    setCount(count + 1);
+    console.log("this is" + count);
+  }
+
+  const goHome = () => history.push("/home");
+
   return (
     <>
       {userData.user ? (
         <div className="app">
-          <>
-            <div className="question-section">
-              <div className="question-count">
-                <span>Question {currentQuestion + 1}</span>/{questions.length}
+          {count > questions.length ? (
+            <button
+              type="button"
+              className="btn btn btn-success goHomeButton"
+              onClick={goHome}
+            >
+              Submit
+            </button>
+          ) : (
+            <>
+              <div className="question-section">
+                <div className="question-count">
+                  <span>Question {currentQuestion + 1}</span>/{questions.length}
+                </div>
+                <div className="question-text">
+                  {questions[currentQuestion].questionText}
+                </div>
               </div>
-              <div className="question-text">
-                {questions[currentQuestion].questionText}
+              <div className="answer-section">
+                {questions[currentQuestion].answerOptions.map(
+                  (answerOption) => (
+                    <button
+                      className="answerButton"
+                      onClick={() => {
+                        handleAnswerOptionClick();
+                        counter();
+                        appendAnswertoArray();
+                      }}
+                    >
+                      {answerOption.answerText}
+                    </button>
+                  )
+                )}
               </div>
-            </div>
-            <div className="answer-section">
-              {questions[currentQuestion].answerOptions.map((answerOption) => (
-                <button
-                  className="answerButton"
-                  onClick={() => handleAnswerOptionClick()}
-                >
-                  {answerOption.answerText}
-                </button>
-              ))}
-            </div>
-          </>
+            </>
+          )}
         </div>
       ) : (
         <LandingPage />
