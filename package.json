@@ -1,7 +1,7 @@
 {
   "name": "react-project-winglet",
   "version": "1.0.0",
-  "description": "# Team members",
+  "description": "react_winglet_project",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,7 +10,7 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",

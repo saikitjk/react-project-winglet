@@ -12,10 +12,9 @@ export default function SpotifyModule() {
   const spotify = Credentials();
 
   console.log("RENDERING APP.JS");
-  console.log(process.env.REACT_APP_SPOTIFYID);
-  console.log(process.env.REACT_APP_ID);
-  console.log(process.env.REACT_APP_KEY);
-  console.log("key " + spotify.ClientKey);
+
+  console.log("spotifyid " + process.env.REACT_APP_ID);
+  console.log("spotifykey " + process.env.REACT_APP_KEY);
 
   const data = [
     { value: 1, name: "A" },
