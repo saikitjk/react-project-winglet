@@ -1,8 +1,9 @@
 import React from "react";
+import "./style.css";
 
 const Detail = ({ album, artists, name }) => {
   return (
-    <div className="offset-md-1 col-sm-4">
+    <div className="cover offset-md-1 col-sm-4">
       <div className="row col-sm-12 px-0">
         <img src={album.images[0].url} alt={name}></img>
       </div>

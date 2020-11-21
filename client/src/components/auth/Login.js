@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import "./loginStyle.css";
 import UserContext from "../context/UserContext";
 import ErrorMessage from "../errorHandling/errorMessage";
+import background from "./bg.jpg";
 
 export default function Login() {
   const [userEmail, setEmail] = useState();
@@ -34,51 +35,49 @@ export default function Login() {
   };
 
   return (
-    <div className="loginPage">
-      <h2>Login</h2>
-      <form onSubmit={submit}>
-        <div class="form-group">
-          <label htmlFor="inputEmail">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="inputEmail"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-            autocomplete="off"
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
-          <small id="emailHelp" class="form-text text-muted">
-            We'll never share your email with anyone else. Hehe
-          </small>
-        </div>
+    <div className="fullpage">
+      <img src={background} alt="Background" className="backGround" />
+      <div className="loginPage">
+        <h2>Login</h2>
+        <br></br>
+        <form onSubmit={submit}>
+          <div class="form-group">
+            <label htmlFor="inputEmail">Email address</label>
+            <input
+              type="email"
+              className="form-control"
+              id="inputEmail"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              autocomplete="off"
+              onChange={(e) => setEmail(e.target.value)}
+            ></input>
+            <small id="emailHelp" class="form-text text-muted"></small>
+          </div>
 
-        <div class="form-group">
-          <label htmlFor="inputPassword">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="inputPassword"
-            placeholder="Password"
-            autocomplete="off"
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </div>
-        {authError && (
-          <ErrorMessage
-            errorMessage={authError}
-            clearError={() => setAuthError(undefined)}
-          />
-        )}
+          <div class="form-group">
+            <label htmlFor="inputPassword">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="inputPassword"
+              placeholder="Password"
+              autocomplete="off"
+              onChange={(e) => setPassword(e.target.value)}
+            ></input>
+          </div>
+          {authError && (
+            <ErrorMessage
+              errorMessage={authError}
+              clearError={() => setAuthError(undefined)}
+            />
+          )}
 
-        <button
-          type="submit"
-          value="Login"
-          class="btn btn-outline-dark submitButton"
-        >
-          Login
-        </button>
-      </form>
+          <button type="submit" value="Login" className="btn submitButton">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
