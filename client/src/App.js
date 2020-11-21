@@ -63,8 +63,6 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/question" component={Question} />
           </Switch>
-
-          <Footer />
         </UserContext.Provider>
       </BrowserRouter>
     </>

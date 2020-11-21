@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import "./loginStyle.css";
 import UserContext from "../context/UserContext";
 import ErrorMessage from "../errorHandling/errorMessage";
+import background from './bg.jpg';
 
 export default function Login() {
   const [userEmail, setEmail] = useState();
@@ -34,8 +35,11 @@ export default function Login() {
   };
 
   return (
-    <div className="loginPage">
+    <div className="fullpage">
+      <img src={background} alt="Background" className="backGround" />
+      <div className="loginPage">
       <h2>Login</h2>
+      <br></br>
       <form onSubmit={submit}>
         <div class="form-group">
           <label htmlFor="inputEmail">Email address</label>
@@ -74,11 +78,12 @@ export default function Login() {
         <button
           type="submit"
           value="Login"
-          class="btn"
+          class="btn submitButton"
         >
           Login
         </button>
       </form>
+      </div>
     </div>
   );
 }

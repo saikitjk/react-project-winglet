@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import "./registerStyle.css";
 import UserContext from "../context/UserContext";
 import ErrorMessage from "../errorHandling/errorMessage";
+import background from './bg.jpg';
 
 export default function Register() {
   const [userName, setUserName] = useState();
@@ -39,6 +40,8 @@ export default function Register() {
   };
 
   return (
+    <div className="fullpage">
+      <img src={background} alt="Background" className="backGround" />
     <div className="signUpPage">
       <h2>Sign Up</h2>
 
@@ -103,11 +106,12 @@ export default function Register() {
         <button
           type="submit"
           value="Register"
-          class="btn btn-outline-dark submitButton"
+          class="btn submitButton"
         >
           Submit
         </button>
       </form>
+    </div>
     </div>
   );
 }

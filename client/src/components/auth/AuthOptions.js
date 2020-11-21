@@ -23,7 +23,7 @@ export default function AuthOptions() {
       {userData.user ? (
         <button
           type="button"
-          className="btn btn-outline-dark logoutButton"
+          className="logoutButton"
           onClick={logout}
         >
           Logout
@@ -32,7 +32,7 @@ export default function AuthOptions() {
         <>
           <button
             type="button"
-            className="btn btn-outline-dark registerButton"
+            className="registerButton"
             onClick={register}
           >
             Sign Up
@@ -40,7 +40,7 @@ export default function AuthOptions() {
 
           <button
             type="button"
-            className="btn btn-outline-dark loginButton"
+            className="loginButton"
             onClick={login}
           >
             Login
