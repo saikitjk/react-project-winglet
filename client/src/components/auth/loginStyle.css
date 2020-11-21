@@ -1,7 +1,25 @@
 .loginPage {
-  margin: 5rem;
+  position: relative;
+  bottom: 529px;
+  background-color: #fff1e0;
+  border-radius: 10px;
+  margin-top: 80px;
+  margin-left: 80px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 400px;
 }
-.submitButton {
+.btn {
+  background-color: #f5af5b;
+  color: white;
   margin-top: 1rem;
-  font-size: xx-small;
+  font-size: 16px;
+}
+
+.backGround {
+  position: relative;
+  width: auto;
+  height: 100%;
 }
