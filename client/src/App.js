@@ -5,6 +5,7 @@ import Home from "./components/pages/Home";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 import Question from "./components/pages/Questionnaire/Question";
 import UserContext from "./components/context/UserContext";
 import LandingPage from "./components/pages/LandingPage"; //welcome page
@@ -54,7 +55,7 @@ function App() {
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
           <Header />
-
+          
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route path="/home" component={Home} />
@@ -62,6 +63,8 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/question" component={Question} />
           </Switch>
+
+          <Footer />
         </UserContext.Provider>
       </BrowserRouter>
     </>

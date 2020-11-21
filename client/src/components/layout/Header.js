@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
+import logo from './winglet.png';
 import { Link } from "react-router-dom";
 import AuthOptions from "../auth/AuthOptions";
 import UserContext from "../context/UserContext";
 import "./style.css";
+
 
 export default function Header() {
   //check if token exist so it can be use to
@@ -17,13 +19,11 @@ export default function Header() {
     <header className="header">
       {userData.user ? (
         <Link to="/home">
-          <h1 className="title" onClick={refreshpage}>
-            Winglet App{" "}
-          </h1>
+          <img src={logo} alt="Logo" className="logo" />
         </Link>
       ) : (
         <Link to="/">
-          <h1 className="title">Winglet App </h1>
+          <img src={logo} alt="Logo" className="logo" />
         </Link>
       )}
       <AuthOptions />

@@ -1,9 +1,21 @@
 .header {
   display: flex;
-  background-color: grey;
-  height: 70px;
+  background-color: #fff1e0;
+  height: 90px;
   align-items: center;
   justify-content: space-between;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.footer {
+  background-color: #F5AF5B ;
+  color: white;
+  font-size: 20px;
+  padding-left: 70px;
+  padding-top: 60px;
 }
 
 .title {
@@ -11,3 +23,12 @@
   color: whitesmoke;
   padding: 0 1rem;
 }
+
+.logo {
+  width: 180px;
+  position: relative;
+  left: 20px;
+ 
+}
+
+
