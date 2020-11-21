@@ -29,95 +29,90 @@
     margin-bottom: 10px;
 
  }
-.photo11 {
+ .photo11 {
     position: relative;
-    max-height: 200px;
-    padding-left: 80px;
-    margin-top: 40px;
-    top: 30px;
+    max-height: 300px;
+    padding-top: 60px;
+    padding-left: 60px;
 }
 .photo33 {
     position: relative;
-    max-height: 200px;
-    padding-left: 80px;
-    margin-top: 40px;
-    top: 30px;
+    max-height: 300px;
+    padding-top: 60px;
+    padding-left: 60px;
 }
 .photo55 {
     position: relative;
-    max-height: 200px;
-    padding-left: 80px;
-    margin-top: 40px;
-    top: 30px;
+    max-height: 300px;
+    padding-top: 60px;
+    padding-left: 60px;
 }
 .photo22 {
     position: relative;
-    max-height: 200px;
-    margin-top: auto;
-    padding-right: 50px;
-    float: right;
+    max-height: 300px;
+    padding-top: 60px;
+    padding-left: 60px;
+
 }
 .photo44 {
     position: relative;
-    max-height: 200px;
-    padding-right: 50px;
-    float: right;
+    max-height: 300px;
+    padding-top: 60px;
+    padding-left: 60px;
 }
 .photo66 {
     position: relative;
-    max-height: 200px;
-    padding-right: 50px;
-    float: right;
+    max-height: 300px;
+    padding-top: 60px;
+    padding-left: 60px;
+    margin-bottom: 60px;
 }
-
-.para1{
+.para1 {
     position: relative;
-    text-align: left;
+    float: right;
+    padding-top: 150px;
+    padding-right: 240px;
     font-size: 30px;
     font-weight: bold;
-    float: right;
-    margin-top: 130px;
-    margin-right: 90px;
 }
-
 .para2{
     position: relative;
-    text-align: right;
+    float: right;
+    padding-top: 150px;
+    padding-right: 440px;
     font-size: 30px;
     font-weight: bold;
-    float: left;
-    margin-top: 60px;
-    margin-left: 400px;
+    
 }
-
 .para3{
     position: relative;
-    text-align: left;
+    float: right;
+    padding-top: 150px;
+    padding-right: 320px;
     font-size: 30px;
     font-weight: bold;
-    float: right;
 }
-
 .para4{
     position: relative;
-    text-align: right;
+    float: right;
+    padding-top: 150px;
+    padding-right: 160px;
     font-size: 30px;
     font-weight: bold;
-    float: left;
 }
-
 .para5{
     position: relative;
-    text-align: left;
+    float: right;
+    padding-top: 150px;
+    padding-right: 300px;
     font-size: 30px;
     font-weight: bold;
-    float: right;
 }
-
 .para6{
     position: relative;
-    text-align: right;
+    float: right;
+    padding-top: 150px;
+    padding-right: 430px;
     font-size: 30px;
     font-weight: bold;
-    float: left;
 }

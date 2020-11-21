@@ -15,7 +15,8 @@ export default function LandingPage() {
 
     <h2 className="heroslogan">The Tools You Need <br>
     </br>To Plan Your Next Date</h2>
-  <div className="content-block">
+    <div className="content-block">
+    
     <div className="paragraph1">
       <img src={photo11} alt="photo11" className="photo11" />
       <p className="para1">Have Winglet capture your time together.</p>
