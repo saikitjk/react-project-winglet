@@ -16,11 +16,6 @@ export default function SpotifyModule() {
   console.log("spotifyid " + process.env.REACT_APP_ID);
   console.log("spotifykey " + process.env.REACT_APP_KEY);
 
-  const data = [
-    { value: 1, name: "A" },
-    { value: 2, name: "B" },
-    { value: 3, name: "C" },
-  ];
   const [token, setToken] = useState("");
   const [genres, setGenres] = useState({
     selectedGenre: "",
