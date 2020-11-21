@@ -6,6 +6,10 @@ export default function useBusinessSearch(term, location) {
   const [amountResults, setAmountResults] = useState();
   const [searchParams, setSearchParams] = useState({ term, location });
 
+  const [events, setEvents] = useState([]);
+  const [amountEventResults, setAmountEventResults] = useState();
+  const [eventParams, setEventParams] = useState({ location });
+
   useEffect(() => {
     setBusinesses([]);
     const fetchData = async () => {
@@ -14,11 +18,25 @@ export default function useBusinessSearch(term, location) {
         const resp = await rawData.json();
         setBusinesses(resp.businesses);
         setAmountResults(resp.total);
+
+        const rawEventData = await api.get("/events/", eventParams);
+        const respEvent = await rawEventData.json();
+        setEvents(respEvent.events);
+        setAmountEventResults(respEvent.total);
       } catch (e) {
         console.error(e);
       }
     };
     fetchData();
-  }, [searchParams]);
-  return [businesses, amountResults, searchParams, setSearchParams];
+  }, [eventParams, searchParams]);
+  return [
+    businesses,
+    amountResults,
+    searchParams,
+    setSearchParams,
+    events,
+    amountEventResults,
+    eventParams,
+    setEventParams,
+  ];
 }

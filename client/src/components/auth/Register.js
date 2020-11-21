@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import "./registerStyle.css";
 import UserContext from "../context/UserContext";
 import ErrorMessage from "../errorHandling/errorMessage";
+import background from "./bg.jpg";
 
 export default function Register() {
   const [userName, setUserName] = useState();
@@ -39,75 +40,72 @@ export default function Register() {
   };
 
   return (
-    <div className="signUpPage">
-      <h2>Sign Up</h2>
+    <div className="fullpage">
+      <img src={background} alt="Background" className="backGround" />
+      <div className="signUpPage">
+        <h2>Sign Up</h2>
+        <br></br>
+        <form onSubmit={submit}>
+          {/* <div class="form-group">
+            <label htmlFor="inputUsername">Username</label>
+            <input
+              type="text"
+              className="form-control"
+              id="userName"
+              placeholder="Username"
+              autocomplete="off"
+              onChange={(e) => setUserName(e.target.value)}
+            ></input>
+          </div> */}
+          <div class="form-group">
+            <label htmlFor="inputEmail">Email address</label>
+            <input
+              type="email"
+              className="form-control"
+              id="inputEmail"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              autocomplete="off"
+              onChange={(e) => setEmail(e.target.value)}
+            ></input>
+            <small id="emailHelp" class="form-text text-muted"></small>
+          </div>
 
-      <form onSubmit={submit}>
-        <div class="form-group">
-          <label htmlFor="inputUsername">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            id="userName"
-            placeholder="Username"
-            autocomplete="off"
-            onChange={(e) => setUserName(e.target.value)}
-          ></input>
-        </div>
-        <div class="form-group">
-          <label htmlFor="inputEmail">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="inputEmail"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-            autocomplete="off"
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
-          <small id="emailHelp" class="form-text text-muted">
-            We'll never share your email with anyone else. Hehe
-          </small>
-        </div>
+          <div class="form-group">
+            <label htmlFor="inputPassword">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="inputPassword"
+              placeholder="Password"
+              autocomplete="off"
+              onChange={(e) => setPassword(e.target.value)}
+            ></input>
+          </div>
 
-        <div class="form-group">
-          <label htmlFor="inputPassword">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="inputPassword"
-            placeholder="Password"
-            autocomplete="off"
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </div>
+          <div class="form-group">
+            <label htmlFor="inputConfirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="inputConfirmPassword"
+              placeholder="Confirm Password"
+              autocomplete="off"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            ></input>
+          </div>
+          {authError && (
+            <ErrorMessage
+              errorMessage={authError}
+              clearError={() => setAuthError(undefined)}
+            />
+          )}
 
-        <div class="form-group">
-          <label htmlFor="inputConfirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="inputConfirmPassword"
-            placeholder="Confirm Password"
-            autocomplete="off"
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          ></input>
-        </div>
-        {authError && (
-          <ErrorMessage
-            errorMessage={authError}
-            clearError={() => setAuthError(undefined)}
-          />
-        )}
-
-        <button
-          type="submit"
-          value="Register"
-          class="btn btn-outline-dark submitButton"
-        >
-          Submit
-        </button>
-      </form>
+          <button type="submit" value="Register" className="btn  submitButton">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
