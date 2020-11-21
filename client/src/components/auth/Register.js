@@ -44,19 +44,9 @@ export default function Register() {
       <img src={background} alt="Background" className="backGround" />
     <div className="signUpPage">
       <h2>Sign Up</h2>
-
+      <br></br>
       <form onSubmit={submit}>
-        <div class="form-group">
-          <label htmlFor="inputUsername">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            id="userName"
-            placeholder="Username"
-            autocomplete="off"
-            onChange={(e) => setUserName(e.target.value)}
-          ></input>
-        </div>
+      
         <div class="form-group">
           <label htmlFor="inputEmail">Email address</label>
           <input
@@ -69,7 +59,6 @@ export default function Register() {
             onChange={(e) => setEmail(e.target.value)}
           ></input>
           <small id="emailHelp" class="form-text text-muted">
-            We'll never share your email with anyone else. Hehe
           </small>
         </div>
 
