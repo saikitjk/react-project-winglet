@@ -14,7 +14,7 @@ const {
   MarkerWithLabel,
 } = require("react-google-maps/lib/components/addons/MarkerWithLabel");
 
-Geocode.setApiKey("AIzaSyALVjLwOIM1gf7EzdJJVmWLKdLP-yZGTcw");
+Geocode.setApiKey("AIzaSyC0dMzlpaXvrtOMd7tTF6MCOM5VUWGDC4w");
 Geocode.enableDebug();
 
 class MapModule extends React.Component {
@@ -267,7 +267,7 @@ class MapModule extends React.Component {
           </Descriptions>
         </div>
         <AsyncMap
-          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyC0dMzlpaXvrtOMd7tTF6MCOM5VUWGDC4w`}
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: this.state.height }} />}
           mapElement={<div style={{ height: `100%` }} />}
