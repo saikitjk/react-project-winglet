@@ -4,7 +4,7 @@
   "description": "react_winglet_project",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server --port $PORT",
     "start:prod": "",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
@@ -32,7 +32,8 @@
     "nodemon": "^2.0.6",
     "react-geocode": "^0.2.2",
     "react-google-autocomplete": "^1.2.6",
-    "react-google-map": "^3.1.1"
+    "react-google-map": "^3.1.1",
+    "yargs": "^16.1.1"
   },
   "devDependencies": {
     "dotenv-webpack": "^5.1.0"

@@ -14,7 +14,7 @@ const {
   MarkerWithLabel,
 } = require("react-google-maps/lib/components/addons/MarkerWithLabel");
 
-Geocode.setApiKey("AIzaSyALVjLwOIM1gf7EzdJJVmWLKdLP-yZGTcw");
+Geocode.setApiKey("AIzaSyC0dMzlpaXvrtOMd7tTF6MCOM5VUWGDC4w");
 Geocode.enableDebug();
 
 class MapModule extends React.Component {
@@ -278,3 +278,5 @@ class MapModule extends React.Component {
 }
 
 export default MapModule;
+
+///process.env.REACT_APP_GOOGLE_KEY
