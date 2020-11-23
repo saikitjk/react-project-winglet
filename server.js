@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "production") {
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-    `mongodb+srv://${process.env.mongoDBConnectionURL}`,
+    `mongodb+srv://${process.env.REACT_APP_mongoDBConnectionURL}`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
