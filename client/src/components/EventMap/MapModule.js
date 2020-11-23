@@ -267,7 +267,7 @@ class MapModule extends React.Component {
           </Descriptions>
         </div>
         <AsyncMap
-          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyC0dMzlpaXvrtOMd7tTF6MCOM5VUWGDC4w`}
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: this.state.height }} />}
           mapElement={<div style={{ height: `100%` }} />}
@@ -278,3 +278,5 @@ class MapModule extends React.Component {
 }
 
 export default MapModule;
+
+///process.env.REACT_APP_GOOGLE_KEY

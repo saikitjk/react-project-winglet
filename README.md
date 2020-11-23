@@ -16,7 +16,7 @@ An app to assist you when your wingman isn’t available. WINGLET will help guid
 - Muna Ahmed - Frontend
 - Jason Kwong - Full Stack
 
-# Technologu
+# Technology
 
 - MERN stack
 - Bulma/ Bootstrap
@@ -25,3 +25,11 @@ An app to assist you when your wingman isn’t available. WINGLET will help guid
 - jswebtoken
 - MVC design
 - Heroku
+
+# Future improvements
+
+- Adding Questionnaire
+- Adding Weather Tracker
+- Adding a google maps widget that shows all of the date locations as pins and displays a card with the date location’s details near the pin selected.
+- Adding the functionality of saving date locations and songs/playlists.
+- Adding the ability to auto generate a spotify playlist
