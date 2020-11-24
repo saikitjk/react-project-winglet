@@ -17,9 +17,25 @@ if (process.env.NODE_ENV === "production") {
 
 // Define API routes here
 
+// mongoose.connect(
+//   process.env.MONGODB_URI ||
+//     `mongodb+srv://${process.env.REACT_APP_mongoDBConnectionURL}`,
+//   {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false,
+//   },
+//   (err) => {
+//     if (err) throw err;
+//     console.log("MongoDB connection established.");
+//   }
+// );
+
+// mongoose
+
 mongoose.connect(
-  process.env.MONGODB_URI ||
-    `mongodb+srv://${process.env.REACT_APP_mongoDBConnectionURL}`,
+  process.env.MONGODB_URI || process.env.mongoDBConnectionURL,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -31,17 +47,6 @@ mongoose.connect(
     console.log("MongoDB connection established.");
   }
 );
-
-// mongoose
-
-// mongoose.connect(
-//   process.env.REACT_APP_mongoDBConnectionURL,
-//   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
-//   (err) => {
-//     if (err) throw err;
-//     console.log("MongoDB connection established.");
-//   }
-// );
 
 //set routes
 
