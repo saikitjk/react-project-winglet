@@ -27,8 +27,11 @@ app.get("*", (req, res) => {
 
 // mongoose
 
+var MONGODB_URL =
+  process.env.mongoDBConnectionURL || "mongodb://localgost/mongoHeadlines";
+
 mongoose.connect(
-  process.env.MONGODB_URI || process.env.mongoDBConnectionURL,
+  MONGODB_URL,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
