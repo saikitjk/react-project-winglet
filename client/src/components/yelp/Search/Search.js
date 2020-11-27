@@ -12,8 +12,8 @@ export default function Search(props) {
   const [
     businesses,
     amountResults,
-    searchParams,
-    setSearchParams,
+    // searchParams,
+    // setSearchParams,
   ] = useBusSearch(term, locationParam);
 
   let resultStats = null;
