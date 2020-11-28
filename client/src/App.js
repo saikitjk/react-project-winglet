@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Login from "./components/auth/Login";
@@ -8,9 +8,9 @@ import Header from "./components/layout/Header";
 import Question from "./components/pages/Questionnaire/Question";
 import UserContext from "./components/context/UserContext";
 import LandingPage from "./components/pages/LandingPage"; //welcome page
-import YelpModule from "./components/yelp/LandingPage/YelpModule";
+//import YelpModule from "./components/yelp/LandingPage/YelpModule";
 import Axios from "axios";
-import Search from "./components/yelp/Search/Search";
+//import Search from "./components/yelp/Search/Search";
 
 //import { useHistory } from "react-router-dom";
 
