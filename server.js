@@ -1,17 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config();
 const argv = require("yargs").argv;
 const app = express();
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "client", "build")));
-
 app.use(cors());
-
-const PORT = process.env.PORT || 8080;
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -26,8 +25,6 @@ if (process.env.NODE_ENV === "production") {
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
-// Define API routes here
 
 // mongoose
 
@@ -47,6 +44,8 @@ mongoose.connect(
     console.log("MongoDB connection established.");
   }
 );
+
+const PORT = process.env.PORT || 8080;
 
 //set routes
 
