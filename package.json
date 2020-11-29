@@ -22,7 +22,6 @@
   "bugs": {
     "url": "https://github.com/saikitjk/react-project-winglet/issues"
   },
-  "homepage": "https://github.com/saikitjk/react-project-winglet",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.3.0",
